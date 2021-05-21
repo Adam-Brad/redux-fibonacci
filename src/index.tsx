@@ -1,20 +1,14 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {createStore} from "redux";
-import {incrementReducer} from "./reducers/incrementReducer";
 import {Provider} from "react-redux";
-import {CounterContainer} from "./components/Counter";
 import {fibonacciReducer} from "./reducers/fibonacciReducer";
 import {FibonacciContainer} from "./components/Fibonacci";
 
-// const store = createStore(incrementReducer);
-const store = createStore(fibonacciReducer);
-
+// @ts-ignore
+const store = createStore(fibonacciReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 render(
-    // <Provider store={store}>
-    //     <CounterContainer/>
-    // </Provider>,
     <Provider store={store}>
         <FibonacciContainer/>
     </Provider>,
